@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: system-ui, sans-serif;
+    height: 100%;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    height: 100%;
+    line-height: 1.5;
+  }
+
+  #__next {
+    height: 100%;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-lg border border-gray-200 p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300;
+  }
+  
+  .sidebar-link {
+    @apply flex items-center px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all duration-300 font-medium;
+  }
+  
+  .sidebar-link.active {
+    @apply bg-primary-600 text-white shadow-lg;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out;
+  }
+  
+  .animate-bounce-in {
+    animation: bounce-in 0.6s ease-out;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/80 border border-white/20 shadow-xl;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
+  }
+  
+  .floating-animation {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Layout utilities */
+  .layout-container {
+    @apply min-h-screen flex;
+  }
+
+  .layout-sidebar {
+    @apply flex-shrink-0 transition-all duration-300;
+  }
+
+  .layout-main {
+    @apply flex-1 flex flex-col min-w-0;
+  }
+
+  .layout-content {
+    @apply flex-1 overflow-auto;
+  }
+
+  /* Sidebar transitions */
+  .sidebar-collapsed {
+    width: 4rem !important;
+  }
+
+  .sidebar-expanded {
+    width: 18rem !important;
+  }
+
+  /* Remove any unwanted margins/padding */
+  .no-gap {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .full-width {
+    width: 100% !important;
+  }
+}
+/* 3D Transform Utilities for Business Cards */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom animations for business cards */
+@keyframes cardFlip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+.card-flip {
+  animation: cardFlip 0.6s ease-in-out;
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced hover effects */
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions for theme changes */
+.theme-transition {
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom scrollbar for better UX */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
